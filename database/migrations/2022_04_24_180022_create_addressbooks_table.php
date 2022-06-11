@@ -15,6 +15,7 @@ class CreateAddressbooksTable extends Migration
     {
         Schema::create('address_books', function (Blueprint $table) {
             $table->id();
+            $table->string('search_type', 3);
             $table->string('tax_id', 20);
             $table->string('name', 255);
             $table->timestamps();
@@ -28,6 +29,6 @@ class CreateAddressbooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addressbooks');
+        Schema::dropIfExists('address_books');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSaleHeadersTable extends Migration
+class CreateSalesHeadersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSaleHeadersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sale_headers', function (Blueprint $table) {
+        Schema::create('sales_headers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateSaleHeadersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sale_headers');
+        Schema::dropIfExists('sales_headers');
     }
 }

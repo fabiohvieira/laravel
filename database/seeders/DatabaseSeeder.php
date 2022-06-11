@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         
         \App\Models\User::factory(100)->create();
         \App\Models\ItemBranch::factory(100)->create();
-        \App\Models\SaleDetail::factory(100)->create();
+        \App\Models\SalesDetail::factory(100)->create();
         \App\Models\Addressbook::factory(100)->create();
         \App\Models\ItemLocation::factory(100)->create();
         $this->call(RouteSeeder::class);

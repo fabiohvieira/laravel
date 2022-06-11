@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AddressbookFactory extends Factory
+class UserDefinedCodeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,9 +14,7 @@ class AddressbookFactory extends Factory
     public function definition()
     {
         return [
-            'search_type' => strtoupper($this->faker->randomLetter()),
-            'name' => $this->faker->name(),
-            'tax_id' => $this->faker->unique()->randomNumber(9, true),
+            //
         ];
     }
 }
