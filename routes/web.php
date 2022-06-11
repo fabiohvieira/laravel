@@ -27,7 +27,8 @@ try {
             return view('app');
         });
         // Route::resource('tasks', TaskController::class);
-        //Route::resource('routes', RouteController::class);
+        Route::resource('addressbooks', AddressBookController::class);
+        Route::resource('datasources', DataSourceController::class);
 
         $routes = \App\Models\Route::all();
         foreach ($routes as $route) {

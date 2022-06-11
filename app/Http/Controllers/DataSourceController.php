@@ -2,18 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\AddressBookService;
-use App\Http\Requests\StoreAddressbookRequest;
-use App\Http\Requests\UpdateAddressbookRequest;
+use App\Http\Requests\StoreDataSourceRequest;
+use App\Http\Requests\UpdateDataSourceRequest;
+use App\Models\DataSource;
 
-class AddressBookController extends Controller
+class DataSourceController extends Controller
 {
-
-    public function __construct(AddressBookService $addressbook)
-    {
-        $this->addressbook = $addressbook;
-    }
-    
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +15,11 @@ class AddressBookController extends Controller
      */
     public function index()
     {
-        //
+        
+        $datasources = DataSource::paginate(10);
+
+        return view('system.datasources.index', compact('datasources'));
+
     }
 
     /**
@@ -37,21 +35,21 @@ class AddressBookController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAddressbookRequest  $request
+     * @param  \App\Http\Requests\StoreDataSourceRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAddressbookRequest $request)
+    public function store(StoreDataSourceRequest $request)
     {
-        
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Addressbook  $addressbook
+     * @param  \App\Models\DataSource  $dataSource
      * @return \Illuminate\Http\Response
      */
-    public function show(Addressbook $addressbook)
+    public function show(DataSource $dataSource)
     {
         //
     }
@@ -59,10 +57,10 @@ class AddressBookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Addressbook  $addressbook
+     * @param  \App\Models\DataSource  $dataSource
      * @return \Illuminate\Http\Response
      */
-    public function edit(Addressbook $addressbook)
+    public function edit(DataSource $dataSource)
     {
         //
     }
@@ -70,11 +68,11 @@ class AddressBookController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAddressbookRequest  $request
-     * @param  \App\Models\Addressbook  $addressbook
+     * @param  \App\Http\Requests\UpdateDataSourceRequest  $request
+     * @param  \App\Models\DataSource  $dataSource
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAddressbookRequest $request, Addressbook $addressbook)
+    public function update(UpdateDataSourceRequest $request, DataSource $dataSource)
     {
         //
     }
@@ -82,10 +80,10 @@ class AddressBookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Addressbook  $addressbook
+     * @param  \App\Models\DataSource  $dataSource
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Addressbook $addressbook)
+    public function destroy(DataSource $dataSource)
     {
         //
     }

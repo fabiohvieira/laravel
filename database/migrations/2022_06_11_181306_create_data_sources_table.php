@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddressbooksTable extends Migration
+class CreateDataSourcesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateAddressbooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('address_books', function (Blueprint $table) {
+        Schema::create('data_sources', function (Blueprint $table) {
             $table->id();
-            $table->string('tax_id', 20);
             $table->string('name', 255);
+            $table->string('type', 255);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateAddressbooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addressbooks');
+        Schema::dropIfExists('data_sources');
     }
 }

@@ -49,6 +49,13 @@ class RouteSeeder extends Seeder
                 'controller' => 'EmailController',
                 'function' => 'index',
                 'name' => 'users.show',
+            ],
+            [
+                'type' => 'resource',
+                'uri' => '/system/data-sources/',
+                'controller' => 'DataSourceController',
+                'function' => 'index',
+                'name' => 'datasource.show',
             ]
         ]);
     }

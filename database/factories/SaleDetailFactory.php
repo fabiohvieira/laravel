@@ -17,8 +17,8 @@ class SaleDetailFactory extends Factory
             'addressbook_id' => $this->faker->numberBetween(0, 100),
             'item_id' => $this->faker->numberBetween(0,50),
             'quantity' => $this->faker->randomDigitNot(0),
-            'unit_price' => $this->faker->randomNumber(),
-            'total_price' => $this->faker->randomNumber(),
+            'unit_price' => $this->faker->randomFloat(2,0,100),
+            'total_price' => $this->faker->randomFloat(2,0,100),
         ];
     }
 }
