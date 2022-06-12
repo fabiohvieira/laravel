@@ -15,6 +15,7 @@ class UserController extends Controller
     public function __construct(UserService $user)
     {
         $this->user = $user;
+        $this->authorizeResource(User::class, 'post');
     }
 
     /**
@@ -117,5 +118,18 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function addUserRole(Request $request, $user_id) {
+
+        $user_role = new UsersRole();
+
+        $user_role->user_id = $user_id;
+        $user_role->role_id = $request->role;
+        $user_role->save();
+
+        return redirect()->back();
+
     }
 }

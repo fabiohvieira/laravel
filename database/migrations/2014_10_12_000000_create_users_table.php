@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('user')->unique();
             $table->string('password');
+            $table->boolean('admin')->default(0);
             $table->integer('address_book_id');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

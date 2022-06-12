@@ -36,7 +36,7 @@ class UsersRoleController extends Controller
      */
     public function store(StoreUsersRoleRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**

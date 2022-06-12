@@ -31,6 +31,7 @@ try {
         Route::resource('datasources', DataSourceController::class);
         Route::resource('users', UserController::class);
         Route::resource('roles', RoleController::class);
+        Route::post('users/{id}/edit/roles', 'UserController@addUserRole')->name('users.roles.add');
 
         // $routes = \App\Models\Route::all();
         // foreach ($routes as $route) {

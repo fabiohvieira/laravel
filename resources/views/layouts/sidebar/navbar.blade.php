@@ -126,15 +126,15 @@
 
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <img src="/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
-                <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
+                <img src="/img/oncore.jpg" class="user-image img-circle elevation-2" alt="User Image">
+            <span class="d-none d-md-inline"></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
                 <li class="user-header bg-primary">
-                    <img src="/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="/img/oncore.jpg" class="img-circle elevation-2" alt="User Image">
                     <p>
-                        {{ Auth::user()->name }}
+                    
                         <small>Member since Nov. 2012</small>
                     </p>
                 </li>

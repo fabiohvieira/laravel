@@ -24,6 +24,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-footer">
+                    <a href="{{ route('users.edit', $user->id) }}"
+                        class="btn btn-success float-right">@lang('crud.save')</a>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -32,18 +36,23 @@
                             Roles
                         </h5>
                         <div class="card-body">
-                            <div class="row pb-3">
-                                <div class="col-md-10">
-                                    <select name="role" id="role" class="form-control">
-                                        @foreach ($roles as $role)
-                                            <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                        @endforeach
-                                    </select>
+                            <form action="{{ route('users.roles.add', $user->id) }}" method="post">
+                                @csrf
+
+                                <div class="row pb-3">
+                                    <div class="col-md-10">
+                                        <select name="role" id="role" class="form-control">
+                                            @foreach ($roles as $role)
+                                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="submit" class="btn btn-success btn-block"><i
+                                                class="fa fa-plus"></i></button>
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <button type="submit" class="btn btn-success btn-block"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </div>
+                            </form>
                             @if (count($user->roles) > 0)
                                 <table class="table">
                                     <tbody>
@@ -51,7 +60,8 @@
                                             <tr>
                                                 <td>{{ $role->role->name }}</td>
                                                 <td width="1%" class="text-center">
-                                                    <a href="" class="text-red"><i class="fa fa-trash"></i></a>
+                                                    <a href="" class="btn btn-default text-red"><i
+                                                            class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -69,12 +79,33 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                    {{ $user->id }}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">@lang('user.id')</label>
+                        </div>
+                        <div class="col-md-8">
+                            {{ $user->id }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">@lang('user.created_at')</label>
+                        </div>
+                        <div class="col-md-8">
+                            {{ $user->created_at }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">@lang('user.updated_at')</label>
+                        </div>
+                        <div class="col-md-8">
+                            {{ $user->updated_at }}
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('users.edit', $user->id) }}"
-                        class="btn btn-success float-left">@lang('crud.save')</a>
-                    <a href="{{ route('users.destroy', $user->id) }}"
+                    <a href="{{ route('users.show', $user->id) }}"
                         class="btn btn-warning float-right">@lang('crud.cancel')</a>
                 </div>
             </div>

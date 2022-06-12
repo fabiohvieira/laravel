@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+    <title>moveon</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/css/adminlte.min.css">
-
+    <link rel="icon" type="image/x-icon" href="/img/oncore.jpg">
 </head>
 
 <body class="hold-transition sidebar-mini text-sm">
