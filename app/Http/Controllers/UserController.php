@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
+use App\Models\UsersRole;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use Illuminate\Support\Facades\Hash;
@@ -64,9 +66,6 @@ class UserController extends Controller
     
         }
 
-        
-        dd($request->all());
-
     }
 
     /**
@@ -90,7 +89,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        $roles = Role::whereNotIn('id', UsersRole::where('user_id', $id)->pluck('role_id')->toArray())->get();
+
+        return view('system.users.edit')->with('user', $user)->with('roles', $roles);
     }
 
     /**

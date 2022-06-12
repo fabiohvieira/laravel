@@ -15,5 +15,9 @@ return [
 
     'search' => 'Search',
     'new' => 'New',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'save' => 'Save',
+    'cancel' => 'Cancel',
 
 ];

@@ -29,27 +29,29 @@ try {
         // Route::resource('tasks', TaskController::class);
         Route::resource('addressbooks', AddressBookController::class);
         Route::resource('datasources', DataSourceController::class);
+        Route::resource('users', UserController::class);
+        Route::resource('roles', RoleController::class);
 
-        $routes = \App\Models\Route::all();
-        foreach ($routes as $route) {
+        // $routes = \App\Models\Route::all();
+        // foreach ($routes as $route) {
             
-            switch ($route->type) {
-                case 'get':
-                    Route::get($route->uri, $route->controller . '@' . $route->function);
-                    break;
+        //     switch ($route->type) {
+        //         case 'get':
+        //             Route::get($route->uri, $route->controller . '@' . $route->function);
+        //             break;
                 
-                case 'resource':
-                    Route::resource($route->uri, $route->controller);
-                    break;
+        //         case 'resource':
+        //             Route::resource($route->uri, $route->controller);
+        //             break;
                     
                 
-                default:
-                    # code...
-                    break;
-            }
+        //         default:
+        //             # code...
+        //             break;
+        //     }
         
         
-        }
+        // }
     });
     
 } catch (\Throwable $th) {

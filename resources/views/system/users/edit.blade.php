@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+
     <div class="row">
         <div class="col-md-9">
 
@@ -9,19 +10,15 @@
                     User Detail
                 </h5>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label for="name">User</label>
-                        </div>
+                    <div class="form-group row">
+                        <label for="name" class="col-md-2 col-form-label">User</label>
                         <div class="col-md-8">
-                            {{ $user->user }}
+                            <input type="text" name="" id="" class="form-control" value="{{ $user->user }}">
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label for="name">Address Book</label>
-                        </div>
+                    <div class="form-group row">
+                        <label for="name" class="col-md-2 col-form-label">Address Book</label>
                         <div class="col-md-8">
                             <a href="">{{ $user->address_book->name }}</a>
                         </div>
@@ -35,12 +32,27 @@
                             Roles
                         </h5>
                         <div class="card-body">
+                            <div class="row pb-3">
+                                <div class="col-md-10">
+                                    <select name="role" id="role" class="form-control">
+                                        @foreach ($roles as $role)
+                                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-success btn-block"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
                             @if (count($user->roles) > 0)
                                 <table class="table">
                                     <tbody>
                                         @foreach ($user->roles as $role)
                                             <tr>
                                                 <td>{{ $role->role->name }}</td>
+                                                <td width="1%" class="text-center">
+                                                    <a href="" class="text-red"><i class="fa fa-trash"></i></a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -61,9 +73,9 @@
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('users.edit', $user->id) }}"
-                        class="btn btn-primary float-left">@lang('crud.edit')</a>
+                        class="btn btn-success float-left">@lang('crud.save')</a>
                     <a href="{{ route('users.destroy', $user->id) }}"
-                        class="btn btn-danger float-right">@lang('crud.delete')</a>
+                        class="btn btn-warning float-right">@lang('crud.cancel')</a>
                 </div>
             </div>
         </div>

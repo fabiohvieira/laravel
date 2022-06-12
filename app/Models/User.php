@@ -48,4 +48,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\AddressBook', 'address_book_id', 'id');
 
     }
+
+    public function roles() {
+
+        return $this->hasMany('App\Models\UsersRole', 'user_id', 'id');
+
+    }
 }

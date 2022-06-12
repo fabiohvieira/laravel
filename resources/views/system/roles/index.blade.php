@@ -12,7 +12,7 @@
                         <button type="submit" class="btn btn-default">@lang('crud.search')</button>
                     </div>
                     <div class="col-md-2">
-                        <a href="{{ route('users.create') }}" class="btn btn-success float-right">@lang('crud.new')</a>
+                        <a href="{{ route('roles.create') }}" class="btn btn-success float-right">@lang('crud.new')</a>
                     </div>
                 </div>
             </form>
@@ -24,14 +24,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($roles as $role)
                         <tr>
-                            <td class="text-center">{{ $user->id }}</td>
-                            <td><a href="{{ route('users.show', $user->id) }}">{{ $user->user }}</a></td>
+                            <td class="text-center">{{ $role->id }}</td>
+                            <td><a href="{{ route('roles.show', $role->id) }}">{{ $role->name }}</a></td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
 
         </div>
 
