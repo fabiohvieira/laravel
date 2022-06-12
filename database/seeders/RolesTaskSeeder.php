@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class UsersRoleSeeder extends Seeder
+class RolesTaskSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +13,6 @@ class UsersRoleSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users_roles')->insert([
-            'user_id' => 1,
-            'role_id' => 1,
-        ]);
+        //
     }
 }

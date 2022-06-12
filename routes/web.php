@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,12 +27,14 @@ try {
         Route::get('/', function() {
             return view('app');
         });
-        // Route::resource('tasks', TaskController::class);
+        Route::resource('routes', RouteController::class);
+        Route::resource('tasks', TaskController::class);
         Route::resource('addressbooks', AddressBookController::class);
         Route::resource('datasources', DataSourceController::class);
         Route::resource('users', UserController::class);
         Route::resource('roles', RoleController::class);
         Route::post('users/{id}/edit/roles', 'UserController@addUserRole')->name('users.roles.add');
+        Route::post('roles/{id}/edit/tasks', 'RoleController@updateTasksRole')->name('roles.tasks.update');
 
         // $routes = \App\Models\Route::all();
         // foreach ($routes as $route) {

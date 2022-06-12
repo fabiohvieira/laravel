@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
+use App\Models\Task;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
-use App\Models\Role;
+use App\Models\RolesTask;
 
 class RoleController extends Controller
 {
@@ -56,7 +59,10 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        $role = Role::find($role->id);
+        $tasks = Task::orderBy('order')->get();
+
+        return view('system.roles.show')->with('role', $role)->with('tasks', $tasks);
     }
 
     /**
@@ -67,7 +73,10 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        $role = Role::find($role->id);
+        $tasks = Task::orderBy('order')->get();
+
+        return view('system.roles.edit')->with('role', $role)->with('tasks', $tasks);
     }
 
     /**
@@ -91,5 +100,23 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         //
+    }
+
+    public function updateTasksRole(Request $request, $id) {
+        
+
+        if (count($request->tasks) > 0) {
+            
+            RolesTask::where('role_id', $id)->delete();
+
+            foreach ($request->tasks as $task) {
+                $role_tasks = new RolesTask();
+                $role_tasks->role_id = $id;
+                $role_tasks->task_id = $task;
+                $role_tasks->save();
+            }
+        }
+        
+        return redirect()->back();
     }
 }

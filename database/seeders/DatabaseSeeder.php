@@ -21,8 +21,10 @@ class DatabaseSeeder extends Seeder
             DB::table($table)->truncate();
         }
         $this->call(UserSeeder::class);
+        $this->call(UsersRoleSeeder::class);
+        $this->call(RoleSeeder::class);
         
-        \App\Models\User::factory(1000)->create();
+        //\App\Models\User::factory(1000)->create();
         \App\Models\ItemBranch::factory(100)->create();
         \App\Models\SalesDetail::factory(100)->create();
         \App\Models\Addressbook::factory(100)->create();

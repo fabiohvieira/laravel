@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class RolesTask extends Model
 {
     use HasFactory;
 
-    public function tasks() {
+    public function task() {
 
-        return $this->hasMany('App\Models\RolesTask','role_id');
-
+        return $this->belongsTo('App\Models\Task', 'task_id', 'id');
+        
     }
 }

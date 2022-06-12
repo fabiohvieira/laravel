@@ -6,45 +6,40 @@
 
             <div class="card">
                 <h5 class="card-header">
-                    User Detail
+                    Role Detail
                 </h5>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-2">
-                            <label for="name">User</label>
+                            <label for="name">Name</label>
                         </div>
                         <div class="col-md-8">
-                            {{ $user->user }}
+                            {{ $role->name }}
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label for="name">Address Book</label>
-                        </div>
-                        <div class="col-md-8">
-                            <a href="">{{ $user->address_book }}</a>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card">
                         <h5 class="card-header">
-                            Roles
+                            Tasks
                         </h5>
                         <div class="card-body">
-                            @if (count($user->roles) > 0)
-                                <table class="table">
-                                    <tbody>
-                                        @foreach ($user->roles as $role)
-                                            <tr>
-                                                <td>{{ $role->role->name }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                            @if (count($tasks) > 0)
+                                <ul>
+                                    @foreach ($tasks->whereNull('task_id') as $task)
+                                        <li><input type="checkbox" name="" id="" disabled checked> {{ $task->name }}</li>
+                                        @if (count($tasks->where('task_id', $task->id)) > 0)
+                                            <ul>
+                                                @foreach ($tasks->where('task_id', $task->id) as $subtask)
+                                                    <li><input type="checkbox" name="" id="" disabled> {{ $subtask->name }}</li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    @endforeach
+                                </ul>
                             @else
                                 <span class="lead text-center">Any results found</span>
                             @endif
@@ -57,12 +52,12 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                    {{ $user->id }}
+                    {{ $role->id }}
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('users.edit', $user->id) }}"
+                    <a href="{{ route('roles.edit', $role->id) }}"
                         class="btn btn-primary float-left">@lang('crud.edit')</a>
-                    <a href="{{ route('users.destroy', $user->id) }}"
+                    <a href="{{ route('roles.destroy', $role->id) }}"
                         class="btn btn-danger float-right">@lang('crud.delete')</a>
                 </div>
             </div>

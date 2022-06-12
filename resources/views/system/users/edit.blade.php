@@ -20,7 +20,7 @@
                     <div class="form-group row">
                         <label for="name" class="col-md-2 col-form-label">Address Book</label>
                         <div class="col-md-8">
-                            <a href="">{{ $user->address_book->name }}</a>
+                            <a href=""></a>
                         </div>
                     </div>
                 </div>

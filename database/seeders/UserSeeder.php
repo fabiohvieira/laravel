@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -18,8 +19,9 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'address_book_id' => 0,
             'user' => 'admin',
+            'admin' => 1,
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => Hash::make('d01m02'), // password
             'remember_token' => Str::random(10),
 
         ]);

@@ -6,16 +6,14 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\UsersRole;
 use Illuminate\Http\Request;
-use App\Services\UserService;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
 
-    public function __construct(UserService $user)
+    public function __construct()
     {
-        $this->user = $user;
-        $this->authorizeResource(User::class, 'post');
+        //$this->authorizeResource(User::class, 'user');
     }
 
     /**
@@ -25,7 +23,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->user->all();
+        $users = User::paginate(10);
         
         return view('system.users.index')->with('users', $users);
     }
