@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/css/adminlte.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -38,5 +39,6 @@
     <!-- AdminLTE App -->
     <script src="/js/adminlte.min.js"></script>
 </body>
+
 
 </html>

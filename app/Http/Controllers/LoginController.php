@@ -17,7 +17,7 @@ class LoginController extends Controller
 
     public function login(Request $request) {
 
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+        if (Auth::attempt(['user' => $request->user, 'password' => $request->password])) {
 
             $this->putSessionTasks();
 

@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Services\UserService;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function __construct(UserService $user)
+    {
+        $this->user = $user;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,9 +22,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
+        $users = $this->user->all();
         
-        return view('system.users.index', compact('users'));
+        return view('system.users.index')->with('users', $users);
     }
 
     /**
@@ -26,7 +34,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $user = new User();
+
+        return view('system.users.create', compact('user'));
     }
 
     /**
@@ -37,7 +47,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::where('user', $request->user)->first();
+
+        if (!$user) {
+
+            if ($request->password == $request->confirm_password) {
+
+                $new_user = new User();
+                $new_user->address_book_id = 0;
+                $new_user->user = $request->user;
+                $new_user->password = Hash::make($request->password);
+                $new_user->save();
+
+                return redirect('/users');
+            }
+    
+        }
+
+        
+        dd($request->all());
+
     }
 
     /**
@@ -48,7 +77,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('system.users.show', compact('user'));
     }
 
     /**

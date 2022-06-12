@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Task;
+use App\View\Components\Table;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::component('table', Table::class);
+        
         Paginator::useBootstrap();
 
         app('view')->composer('app', function ($view) {

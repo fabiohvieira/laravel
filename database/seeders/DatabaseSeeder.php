@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         }
         $this->call(UserSeeder::class);
         
-        \App\Models\User::factory(100)->create();
+        \App\Models\User::factory(1000)->create();
         \App\Models\ItemBranch::factory(100)->create();
         \App\Models\SalesDetail::factory(100)->create();
         \App\Models\Addressbook::factory(100)->create();

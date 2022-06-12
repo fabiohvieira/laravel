@@ -1,31 +1,42 @@
 @extends('app')
 
 @section('content')
-    
     <div class="card">
         <div class="card-body">
-            <table class="table table-bordered table-hover">
-                <thead>
+            <form action="" class="mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" name="" id="" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-default">@lang('crud.search')</button>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{ route('users.create') }}" class="btn btn-primary float-right">@lang('crud.new')</a>
+                    </div>
+                </div>
+            </form>
+            {{-- <table class="table table-bordered table-striped table-sm">
+                <thead class="thead-light">
                     <tr>
-                        <th class="text-center">ID</th>
+                        <th>ID</th>
                         <th>Name</th>
-                        <th>Last Login</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
-                            <td class="text-center">{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->id }}</td>
+                            <td><a href="{{ route('users.show', $user->id) }}">{{ $user->user }}</a></td>
                         </tr>
                     @endforeach
                 </tbody>
-            </table>
-            <br>
+            </table> --}}
 
-            <div class="pull-center">{{ $users->links() }}</div>
+            <x-table :linhas="$users"/>
+
         </div>
-    </div>
 
+    </div>
+    
 @endsection

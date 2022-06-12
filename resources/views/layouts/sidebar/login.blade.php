@@ -27,7 +27,7 @@
       <form action="/login" method="post">
         @csrf
         <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control" placeholder="User" required>
+          <input type="text" name="user" class="form-control" placeholder="User" required autofocus>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>

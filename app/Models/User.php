@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function address_book() {
+
+        return $this->belongsTo('App\Models\AddressBook', 'address_book_id', 'id');
+
+    }
 }
