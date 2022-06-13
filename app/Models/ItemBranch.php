@@ -11,7 +11,7 @@ class ItemBranch extends Model
 
     public function sales() {
 
-        return $this->hasMany('App\Models\SaleDetail', 'item_id', 'id');
+        return $this->hasMany('App\Models\SalesDetail', 'item_id', 'id');
         
     }
 
