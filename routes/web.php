@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +32,7 @@ try {
         Route::resource('datasources', DataSourceController::class);
         Route::resource('users', UserController::class);
         Route::resource('roles', RoleController::class);
+        Route::resource('securities', SecurityController::class);
         Route::post('users/{id}/edit/roles', 'UserController@addUserRole')->name('users.roles.add');
         Route::post('roles/{id}/edit/tasks', 'RoleController@updateTasksRole')->name('roles.tasks.update');
 
