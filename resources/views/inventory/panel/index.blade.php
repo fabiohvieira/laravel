@@ -7,7 +7,7 @@
             <div class="col-lg-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-bold">{{ $item->second_number }}</h5>
+                        <h5 class="card-title text-bold">{{ $item->second_item_number }}</h5>
                         <span class="float-right"><span class="text-green text-bold">$</span>
                             {{ number_format($item->price, 2, '.', ',') }}</span>
 

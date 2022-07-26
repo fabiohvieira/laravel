@@ -16,7 +16,8 @@ class ItemLocationFactory extends Factory
         return [
             'item_id' => $this->faker->numberBetween(0,100),
             'location_id' => 1,
-            'qty_hand' => $this->faker->randomNumber(2),
+            'quantity_hand' => $this->faker->randomNumber(2),
+            'quantity_backorder' => $this->faker->randomNumber(2),
         ];
     }
 }

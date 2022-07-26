@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddressBookRequest;
+use App\Models\AddressBookMaster;
 use App\Services\AddressBookService;
-use App\Http\Requests\StoreAddressbookRequest;
-use App\Http\Requests\UpdateAddressbookRequest;
+use Illuminate\Http\Request;
 
 class AddressBookController extends Controller
 {
-
-    public function __construct(AddressBookService $addressbook)
-    {
-        $this->addressbook = $addressbook;
-    }
-    
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +16,9 @@ class AddressBookController extends Controller
      */
     public function index()
     {
-        //
+        $addressbook = AddressBookMaster::paginate(10);
+
+        return view('addressbook.index', ['addressbook'=>$addressbook]);
     }
 
     /**
@@ -31,27 +28,32 @@ class AddressBookController extends Controller
      */
     public function create()
     {
-        //
+        $addressbook = new AddressBookMaster();
+
+        return view('addressbook.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAddressbookRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAddressbookRequest $request)
+    public function store(AddressBookRequest $request)
     {
+        $validated = $request->validated();
+dd($validated);
+        AddressBookService::store($validated);
         
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Addressbook  $addressbook
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Addressbook $addressbook)
+    public function show($id)
     {
         //
     }
@@ -59,10 +61,10 @@ class AddressBookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Addressbook  $addressbook
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Addressbook $addressbook)
+    public function edit($id)
     {
         //
     }
@@ -70,11 +72,11 @@ class AddressBookController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAddressbookRequest  $request
-     * @param  \App\Models\Addressbook  $addressbook
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAddressbookRequest $request, Addressbook $addressbook)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,10 +84,10 @@ class AddressBookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Addressbook  $addressbook
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Addressbook $addressbook)
+    public function destroy($id)
     {
         //
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemMastersTable extends Migration
+class CreateAddressBookPhonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateItemMastersTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_masters', function (Blueprint $table) {
+        Schema::create('address_book_phones', function (Blueprint $table) {
             $table->id();
-            $table->string('second_item_number', 50);
-            $table->string('description1', 255)->nullable();
-            $table->string('description2', 255);
-
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateItemMastersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_masters');
+        Schema::dropIfExists('address_book_phones');
     }
 }

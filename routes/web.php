@@ -34,6 +34,8 @@ try {
         Route::resource('roles', RoleController::class);
         Route::resource('securities', SecurityController::class);
         Route::resource('panel', ItemPanelController::class);
+        Route::resource('addressbook', AddressBookController::class);
+
         Route::post('users/{id}/edit/roles', 'UserController@addUserRole')->name('users.roles.add');
         Route::post('roles/{id}/edit/tasks', 'RoleController@updateTasksRole')->name('roles.tasks.update');
 

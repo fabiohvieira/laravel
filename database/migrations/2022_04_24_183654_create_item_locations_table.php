@@ -17,7 +17,8 @@ class CreateItemLocationsTable extends Migration
             $table->id();
             $table->integer('item_id');
             $table->integer('location_id');
-            $table->decimal('qty_hand',8,2);
+            $table->decimal('quantity_hand',8,2);
+            $table->decimal('quantity_backorder',8,2);
             $table->timestamps();
         });
     }

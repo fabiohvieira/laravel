@@ -15,8 +15,8 @@ class CreateItemBranchesTable extends Migration
     {
         Schema::create('item_branches', function (Blueprint $table) {
             $table->id();
-            $table->string('second_number', 25);
-            $table->string('third_number', 25);
+            $table->string('second_item_number', 50)->nullable();
+            $table->string('third_item_number', 50)->nullable();
             $table->string('description1', 255)->nullable();
             $table->string('description2', 255)->nullable();
             $table->decimal('price',8,2);

@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AddressbookFactory extends Factory
+class AddressBookMasterFactory extends Factory
 {
     /**
      * Define the model's default state.

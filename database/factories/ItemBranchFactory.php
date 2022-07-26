@@ -14,8 +14,8 @@ class ItemBranchFactory extends Factory
     public function definition()
     {
         return [
-            'second_number' => $this->faker->word(),
-            'third_number' => $this->faker->word(),
+            'second_item_number' => $this->faker->word(),
+            'third_item_number' => $this->faker->word(),
             'description1' => $this->faker->sentence(),
             'description2' => $this->faker->sentence(),
             'price' => $this->faker->randomFloat(2,0,100),
