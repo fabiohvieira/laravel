@@ -42,8 +42,9 @@ class AddressBookController extends Controller
     public function store(AddressBookRequest $request)
     {
         $validated = $request->validated();
-dd($validated);
-        AddressBookService::store($validated);
+        $addressbook = AddressBookService::store($request);
+
+        return redirect(route('addressbook.index'));
         
     }
 

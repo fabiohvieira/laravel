@@ -22,6 +22,8 @@ class AddressBookService {
         $addressbook_address->address_line_3 = $request->address_line_3;
         $addressbook_address->address_line_4 = $request->address_line_4;
         $addressbook_address->save();
+
+        return $addressbook;
     }
 
     
